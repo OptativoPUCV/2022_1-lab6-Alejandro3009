@@ -76,12 +76,13 @@ List* get_adj_nodes(Node* n){
         f++;
         c = 0;
       }
+      if(f == 8)break;
       continue;
     }
     break;
   }
 
-  for(p=0; p<10; p++){
+  for(p=1; p<10; p++){
     Node *newN = copy(n);
     newN->sudo[f][c] = p;
     pushFront(list,newN);
