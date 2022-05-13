@@ -88,7 +88,7 @@ List* get_adj_nodes(Node* n){
   for(p=2; p<10; p++){
     Node *newN = createNode();
     newN->sudo[i][k] = p;
-    pushCurrent(list,newN);
+    pushFront(list,newN);
   }
 
   return list;
