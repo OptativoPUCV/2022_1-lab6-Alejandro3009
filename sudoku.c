@@ -103,7 +103,10 @@ int is_valid(Node* n){
 
   j=0;
   while (1){
-    for(i=0;i<9;i++)nums[k] = n->sudo[i][j];
+    for(i=0;i<9;i++){
+      nums[k] = n->sudo[i][j];
+      k++;
+    }
 
     for(m=0;m<9;m++){
       for (k=m+1;k<9;k++){
@@ -119,7 +122,10 @@ int is_valid(Node* n){
   k=0;
   i=0;
   while (1){
-    for(j=0;j<9;j++)nums[k] = n->sudo[i][j];
+    for(j=0;j<9;j++){
+      nums[k] = n->sudo[i][j];
+      k++;
+    }
 
     for(m=0;m<9;m++){
       for (k=m+1;k<9;k++){

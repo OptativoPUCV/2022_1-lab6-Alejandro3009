@@ -176,3 +176,9 @@ lu., 16 de may. de 2022  0:26:01:
  tests:  2|4
 total_score: 15/70
 c84e5c5
+lu., 16 de may. de 2022  0:27:29: 
+ sudoku.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
+ tests:  5|3
+total_score: 35/70
+1642539
