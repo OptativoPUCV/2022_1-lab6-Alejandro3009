@@ -98,7 +98,7 @@ int is_valid(Node* n){
     if(i>8)break;
   }
 
-  int m,p;
+  int m=0,p;
   for(k=0;k<9;k++){ 
     for(p=0;p<9;p++){
       i=3*(k/3) + (p/3) ;
