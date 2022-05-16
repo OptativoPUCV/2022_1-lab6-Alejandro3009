@@ -44,9 +44,10 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-  int i,j,k=0,m,p;
+  int i,j,k,m,p;
   int nums[9];
 
+  k = 0;
   /*for(i=0;i<9;i++)nums[i] = 0;
 
   j=0;
@@ -114,6 +115,7 @@ int is_valid(Node* n){
     j++;
   }
 
+  k = 0;
   i=0;
   while (1){
     for(j=0;j<9;j++)nums[k] = n->sudo[i][j];
