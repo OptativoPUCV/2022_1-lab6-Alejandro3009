@@ -50,6 +50,7 @@ int is_valid(Node* n){
   for(i=0;i<9;i++)nums[i] = 0;
 
   j=0;
+  i=0;
   for(i=0;i<9;i++){
     if(n->sudo[i][j] == 0)continue;
     else{
