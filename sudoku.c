@@ -111,11 +111,12 @@ int is_valid(Node* n){
       }
     }
 
+    k=0;
     if(j == 8)break;
     j++;
   }
 
-  k = 0;
+  k=0;
   i=0;
   while (1){
     for(j=0;j<9;j++)nums[k] = n->sudo[i][j];
@@ -126,6 +127,7 @@ int is_valid(Node* n){
       }
     }
 
+    k=0;
     if(i == 8)break;
     i++;
   }
