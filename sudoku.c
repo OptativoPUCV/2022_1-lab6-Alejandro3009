@@ -135,6 +135,8 @@ List* get_adj_nodes(Node* n){
             Node* adj=copy(n);
             pushBack(list,adj);
           }*/
+          Node* adj=copy(n);
+          pushBack(list,adj);
         }
         n->sudo[i][j]=0;
         return list;
