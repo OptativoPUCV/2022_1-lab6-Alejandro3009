@@ -43,64 +43,79 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int is_valid(Node* n,int filas,int comlumnas){
-  int i = filas,j = comlumnas,izquierda = 0;
+int is_valid(Node* n){
+  int i,j,k=0;
+  int nums[9];
 
-  i--;
-  while(1){
-    if(i > 8)break;
+  for(i=0;i<9;i++)nums[i] = 0;
 
-    if(i <= 0){
-      izquierda = 1;
-      i = filas + 1;
-    }
-
-    if(izquierda == 0){
-      if(n->sudo[filas][comlumnas] == n->sudo[i][j]){
-        return 0;
-        i--;
-      }
-    }
+  j=0;
+  for(i=0;i<9;i++){
+    if(n->sudo[i][j] == 0)continue;
     else{
-      if(n->sudo[filas][comlumnas] == n->sudo[i][j]){
-        return 0;
-        i++;
+      while (1)
+      {
+        if(n->sudo[i][j] == nums[k])return 0;
+
+        if(nums[k] != 0)k++;
+        else{
+          nums[k] = n->sudo[i][j];
+          break;
+        }
       }
     }
+
+    if(i == 8){
+      i = 0;
+      j++;
+      for(k=0;k<9;k++)nums[k] = 0;
+      k = 0;
+    }
+    if(j>8)break;
   }
 
-  i=filas;
-  j--;
-  izquierda = 0;
-
-  while(1){
-    if(j > 8)break;
-
-    if(j <= 0){
-      izquierda = 1;
-      j = filas + 1;
-    }
-
-    if(izquierda == 0){
-      if(n->sudo[filas][comlumnas] == n->sudo[i][j]){
-        return 0;
-        j--;
-      }
-    }
+  for(j=0;j<9;j++){
+    if(n->sudo[i][j] == 0)continue;
     else{
-      if(n->sudo[filas][comlumnas] == n->sudo[i][j]){
-        return 0;
-        j++;
+      while (1)
+      {
+        if(n->sudo[i][j] == nums[k])return 0;
+
+        if(nums[k] != 0)k++;
+        else{
+          nums[k] = n->sudo[i][j];
+          break;
+        }
       }
     }
+
+    if(j == 8){
+      i++;
+      j = 0;
+      for(k=0;k<9;k++)nums[k] = 0;
+      k = 0;
+    }
+    if(i>8)break;
   }
 
-  int k=0,p; 
-  for(p=0;p<9;p++){
-    int i=3*(k/3) + (p/3) ;
-    int j=3*(k%3) + (p%3) ;
-    printf("%d ",n->sudo[i][j]);
-    if(p%3 == 2) printf("\n");
+  int m,p;
+  for(k=0;k<9;k++){ 
+    for(p=0;p<9;p++){
+      i=3*(k/3) + (p/3) ;
+      j=3*(k%3) + (p%3) ;
+      while (1)
+      {
+        if(n->sudo[i][j] == nums[m])return 0;
+
+        if(nums[m] != 0)m++;
+        else{
+          nums[m] = n->sudo[i][j];
+          break;
+        }
+      }
+    }
+    for(m=0;m<9;m++)nums[m] = 0;
+    m = 0;
   }
 
   return 1;
@@ -116,7 +131,7 @@ List* get_adj_nodes(Node* n){
       if(n->sudo[i][j]==0){
         for(k=1;k<10;k++){
           n->sudo[i][j]=k;
-          if(is_valid(n,i,j)){
+          if(is_valid(n)){
             Node* adj=copy(n);
             pushBack(list,adj);
           }

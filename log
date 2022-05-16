@@ -93,3 +93,8 @@ sudoku.c:46:5: note: declared here
      ^~~~~~~~
 Compilation failed
 260485b
+do., 15 de may. de 2022 22:31:23: 
+ sudoku.c | 97 +++++++++++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 56 insertions(+), 41 deletions(-)
+ tests:  0|0
+6d44500
