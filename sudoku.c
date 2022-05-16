@@ -60,11 +60,11 @@ int is_valid(Node* n){
         if(nums[k] != 0)k++;
         else{
           nums[k] = n->sudo[i][j];
-          k = 0;
           break;
         }
       }
     }
+    k = 0;
 
     if(i == 8){
       i = 0;
@@ -85,11 +85,11 @@ int is_valid(Node* n){
         if(nums[k] != 0)k++;
         else{
           nums[k] = n->sudo[i][j];
-          k = 0;
           break;
         }
       }
     }
+    k = 0;
 
     if(j == 8){
       i++;
@@ -112,10 +112,10 @@ int is_valid(Node* n){
         if(nums[m] != 0)m++;
         else{
           nums[m] = n->sudo[i][j];
-          m = 0;
           break;
         }
       }
+      m = 0;
     }
     for(m=0;m<9;m++)nums[m] = 0;
     m = 0;
