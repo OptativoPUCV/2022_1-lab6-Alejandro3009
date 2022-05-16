@@ -100,8 +100,9 @@ int is_valid(Node* n){
     if(i>8)break;
   }
 
-  int m=0,p;
+  int m,p;
   for(k=0;k<9;k++){ 
+    m = 0;
     for(p=0;p<9;p++){
       i=3*(k/3) + (p/3) ;
       j=3*(k%3) + (p%3) ;
@@ -119,7 +120,6 @@ int is_valid(Node* n){
       m = 0;
     }
     for(m=0;m<9;m++)nums[m] = 0;
-    m = 0;
   }
 
   return 1;
