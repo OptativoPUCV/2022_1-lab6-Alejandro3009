@@ -44,10 +44,10 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-  int i,j,k=0;
+  int i,j,k=0,m,p;
   int nums[9];
 
-  for(i=0;i<9;i++)nums[i] = 0;
+  /*for(i=0;i<9;i++)nums[i] = 0;
 
   j=0;
   for(i=0;i<9;i++){
@@ -98,15 +98,42 @@ int is_valid(Node* n){
       k = 0;
     }
     if(i>8)break;
+  }*/
+
+  j=0;
+  while (1){
+    for(i=0;i<9;i++)nums[k] = n->sudo[i][j];
+
+    for(m=0;m<9;m++){
+      for (k=m;k<9;k++){
+        if(nums[m] == nums[k] && nums[m] != 0)return 0;
+      }
+    }
+
+    if(j == 8)break;
+    j++;
   }
 
-  int m,p;
+  i=0;
+  while (1){
+    for(j=0;j<9;j++)nums[k] = n->sudo[i][j];
+
+    for(m=0;m<9;m++){
+      for (k=m;k<9;k++){
+        if(nums[m] == nums[k] && nums[m] != 0)return 0;
+      }
+    }
+
+    if(i == 8)break;
+    i++;
+  }
+
   for(k=0;k<9;k++){ 
     m = 0;
     for(p=0;p<9;p++){
       i=3*(k/3) + (p/3) ;
       j=3*(k%3) + (p%3) ;
-      if(n->sudo[i][j] == 0)continue;
+      /*if(n->sudo[i][j] == 0)continue;
       while (1)
       {
         if(n->sudo[i][j] == nums[m] && n->sudo[i][j] != 0 && nums[m] != 0)return 0;
@@ -116,9 +143,17 @@ int is_valid(Node* n){
           nums[m] = n->sudo[i][j];
           break;
         }
-      }
-      m = 0;
+      }*/
+      nums[m] = n->sudo[i][j];
+      m++;
     }
+
+    for(m=0;m<9;m++){
+      for (p=m;k<9;k++){
+        if(nums[m] == nums[p] && nums[m] != 0)return 0;
+      }
+    }
+
     for(m=0;m<9;m++)nums[m] = 0;
   }
 
